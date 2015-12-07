@@ -89,7 +89,7 @@ inputs:
     default: localhost
 {{< /gsHighlight >}}
 
-
+blah
 We defined node_templates, which contain two resources: a `host` node (our local machine) and an `http_web_server` node. The type of these resources are inherited from the file we imported in the `imports` section. We'll ignore that for now.
 
 Properties are resource level configuration options. Our host contains an `ip` property, which gets its value from one of our inputs using a built-in function called `get_input`.
