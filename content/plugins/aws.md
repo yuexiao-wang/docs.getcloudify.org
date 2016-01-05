@@ -222,7 +222,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the actual IP is available via the `aws_resource_id` runtime-property.
 
 
-## cloudify.aws.nodes.VPC
+## cloudify.aws.nodes.VPC {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.nodes.Network]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -247,7 +247,7 @@ Note that the VPC's id in AWS is available via the `aws_resource_id` runtime-pro
 When a VPC is created, it receives several default attachments. We assign a runtime property for original dhcp options set, called `default_dhcp_options_id`. Note that this is not necessarily the current dhcp options set.
 
 
-## cloudify.aws.nodes.Subnet
+## cloudify.aws.nodes.Subnet {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.nodes.Subnet]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -269,7 +269,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the subnet's id in AWS is available via the `aws_resource_id` runtime-property.
 
 
-## cloudify.aws.nodes.InternetGateway
+## cloudify.aws.nodes.InternetGateway {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.aws.nodes.Gateway]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -290,7 +290,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the internet gateway's id in AWS is available via the `aws_resource_id` runtime-property.
 
 
-## cloudify.aws.nodes.VPNGateway
+## cloudify.aws.nodes.VPNGateway {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.aws.nodes.Gateway]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -311,7 +311,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the vpn gateway's id in AWS is available via the `aws_resource_id` runtime-property.
 
 
-## cloudify.aws.nodes.CustomerGateway
+## cloudify.aws.nodes.CustomerGateway {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.aws.nodes.Gateway]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -334,7 +334,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the customer gateway's id in AWS is available via the `aws_resource_id` runtime-property.
 
 
-## cloudify.aws.nodes.ACL
+## cloudify.aws.nodes.ACL {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.nodes.Root]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -355,7 +355,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the network_acl's id in AWS is available via the `aws_resource_id` runtime-property.
 
 
-## cloudify.aws.nodes.DHCPOptions
+## cloudify.aws.nodes.DHCPOptions {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.nodes.Root]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -380,7 +380,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the DHCP Option Set's id in AWS is available via the `aws_resource_id` runtime-property.
 
 
-## cloudify.aws.nodes.RouteTable
+## cloudify.aws.nodes.RouteTable {{% tag %}}3.3.1 FEATURE{{% /tag %}}
 
 **Derived From:** [cloudify.nodes.Root]({{< relref "blueprints/built-in-types.md" >}})
 
@@ -403,11 +403,13 @@ See [relationships]({{< relref "blueprints/spec-relationships.md" >}}).
 
 The following plugin relationship operations are defined in the AWS plugin:
 
- * `cloudify.aws.relationships.instance_connected_to_elastic_ip` This connects an Instance to an Elastic IP. The source is the instance and the target is the Elastic IP.
+* `cloudify.aws.relationships.instance_connected_to_elastic_ip` This connects an Instance to an Elastic IP. The source is the instance and the target is the Elastic IP.
 
 * `cloudify.aws.relationships.instance_connected_to_keypair` The `run_instances` operation looks to see if there are any relationships that define a relationship between the instance and a keypair. If so, that keypair will be the keypair for that instance. It inserts the key's name property in the 'key_name' parameter in the `run_instances` function.
 
 * `cloudify.aws.relationships.instance_connected_to_security_group` The `run_instances` operation looks to see if there are any relationships that define a relationship between the instance and a security group. If so, that security group's ID will be the included in the list of security groups in the 'security_group_ids' parameter in the `run_instances` function.
+
+{{% tag %}}New Relationships in 3.3.1{{% /tag %}}
 
 * `cloudify.aws.relationships.instance_contained_in_subnet` The `run_instances` operation looks for any relationships to a Subnet and creates the Instance in that Subnet. Otherwise, the instance is in the EC2 Classic VPC.
 
