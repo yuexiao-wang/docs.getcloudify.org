@@ -3,7 +3,7 @@ layout: bt_wiki
 title: Fabric (SSH) Plugin
 category: Plugins
 draft: false
-abstract: "Cloudify Fabric plugin description and configuration"
+abstract: "Fabric Plugin Documentation"
 weight: 1200
 
 repo_link: https://github.com/cloudify-cosmo/cloudify-fabric-plugin
@@ -15,9 +15,9 @@ fabric_link: http://docs.fabfile.org
 
 # Description
 
-The [Fabric]({{< field "fabric_link" >}}) plugin can be used to map operations to ssh commands or Fabric tasks that are included in your blueprint.
+[Fabric]({{< field "fabric_link" >}}) is a python library for communication with hosts via SSH.
 
-The plugin provides an agent-less method for running operations on destination hosts. The source code for this plugin can be found at [github]({{< field "repo_link" >}}).
+The plugin provides Cloudify with an agent-less method for executing operations on destination hosts. The source code for this plugin can be found at [github]({{< field "repo_link" >}}).
 
 
 # Plugin Requirements:
@@ -26,10 +26,34 @@ The plugin provides an agent-less method for running operations on destination h
   * 2.7.x
 
 
-{{% gsNote title="Note" %}}
-As the fabric plugin is used for remote execution, the fact that it doesn't support versions of Python other than 2.7.x doesn't really mean much.
-{{% /gsNote %}}
+# Basic Usage
 
+{{< gsHighlight  yaml  >}}
+
+imports:
+    - {{< field "yaml_link" >}}
+
+node_templates:
+  example_node:
+    type: cloudify.nodes.WebServer
+    interfaces:
+      cloudify.interfaces.lifecycle:
+          start:
+            implementation: fabric.fabric_plugin.tasks.run_commands
+            inputs:
+              commands:
+                - echo "source ~/myfile" >> ~/.bashrc
+                - apt-get install -y python-dev git
+                - pip install my_module
+              fabric_env:
+                host_string: 127.0.0.1
+                user: username
+                key_filename: path/to/ssh/key.file
+
+{{< /gsHighlight >}}
+
+
+# Features
 
 ## Execution Methods
 
@@ -40,7 +64,43 @@ There are 4 modes for working with this plugin.
 * Executing a Fabric task by specifying its path in the current python environment.
 * Executing a script by specifying the script's path or URL.
 
-# Running commands
+# Types
+
+
+## Operations
+
+You can map any node type's implementation to one of the following operations.
+
+  * `fabric.fabric_plugin.tasks.run_commands`
+    * **inputs**
+      * `commands` a list of shell commands.
+      * `fabric_env` accepts a dictionary that describes the [Fabric Environment](http://docs.fabfile.org/en/1.10/usage/env.html).
+  * `fabric.fabric_plugin.tasks.run_task`
+    * *inputs*
+      * `tasks_file` path to the tasks file underneath the directory that contains the blueprint.
+      * `task_name` the name of the task in the tasks file that you would like to run.
+      * `fabric_env` accepts a dictionary that describes the [Fabric Environment](http://docs.fabfile.org/en/1.10/usage/env.html).
+      * `task_properties` properties that your task expects.
+  * `fabric.fabric_plugin.tasks.run_module_task`
+    * *inputs*
+      * `task_mapping` path to a method in some package that is already installed.
+      * `fabric_env` accepts a dictionary that describes the [Fabric Environment](http://docs.fabfile.org/en/1.10/usage/env.html).
+      * `task_properties` properties that your task expects.
+  * `fabric.fabric_plugin.tasks.run_script`
+    * *inputs*
+      * `script_path` path to the script underneath the directory that contains the blueprint.
+      * `fabric_env` accepts a dictionary that describes the [Fabric Environment](http://docs.fabfile.org/en/1.10/usage/env.html).
+      * `process` a dictionary that can configure the process:
+        * `cwd` The working directory to use when running the script.
+        * `args` List of arguments to pass to the script.
+        * `command_prefix` The command prefix to use when running the script. This is not necessary if the script contains the `#!` line.
+      * Any additional keyword arguments will be treated as environment variables.
+
+
+# Examples
+
+
+## Running Commands
 
 {{< gsHighlight  yaml  >}}
 imports:
@@ -63,7 +123,7 @@ node_templates:
 Here, we use the `run_commands` plugin task and specify a list of commands to execute on the agent host.
 
 
-# Running tasks
+## Running Tasks
 
 {{< gsHighlight  yaml  >}}
 imports:
@@ -111,7 +171,8 @@ def start_nginx(ctx):
     run('sudo service nginx restart')
 {{< /gsHighlight >}}
 
-# Running module tasks
+
+## Running Module Tasks
 
 {{< gsHighlight  yaml  >}}
 imports:
@@ -135,7 +196,7 @@ This example is very similar to the previous one with the following difference. 
 specify the python path to this function.
 
 
-# Running scripts
+## Running Scripts
 
 The fabric plugin can execute scripts remotely and provides access to the `ctx` API for interacting with Cloudify in the same manner as the [script plugin]({{< relref "plugins/script.md" >}}) does.
 
@@ -161,7 +222,7 @@ Accessing the `ctx` API should be done by calling the `ctx` process. For example
 {{% /gsNote %}}
 
 
-## Operation Inputs
+### Operation Inputs
 
 Operation inputs passed to the `run_script` task will be available as environment variables in the script's execution environment.
 Complex data structures such as dictionaries and lists will be JSON encoded when exported as environment variables.
@@ -171,7 +232,7 @@ Complex data structures such as dictionaries and lists will be JSON encoded when
 {{% /gsNote %}}
 
 
-## Process Configuration
+### Process Configuration
 
 The `run_script` task accepts a `process` input which allows configuring the process which runs the script:
 
@@ -202,7 +263,7 @@ node_templates:
 {{< /gsHighlight >}}
 
 
-# SSH configuration
+## SSH configuration
 The fabric plugin will extract the correct host IP address based on the node's host. It will also use the username and key file path if they were set globally during the bootstrap process. However, it is possible to override these values and additional SSH configuration by passing `fabric_env` to operation inputs. This applies to `run_commands`, `run_task` and `run_module_task`. The `fabric_env` input is passed as is to the underlying [Fabric]({{< field "fabric_link" >}}/en/latest/usage/env.html) library, so check their documentation for additional details.
 
 

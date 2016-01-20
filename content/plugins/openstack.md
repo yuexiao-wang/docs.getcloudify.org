@@ -37,7 +37,11 @@ The Openstack plugin uses various Openstack clients packages. The versions used 
 
 # Types
 
-## cloudify.openstack.nodes.Server
+
+## Node Types
+
+
+### cloudify.openstack.nodes.Server
 
 **Derived From:** cloudify.nodes.Compute
 
@@ -98,8 +102,7 @@ Two additional runtime-properties are available on node instances of this type o
   * `password` the password for the administrator user. This runtime property is only available if the `use_password` property is set to `true`.
 
 
-
-## cloudify.openstack.nodes.WindowsServer
+### cloudify.openstack.nodes.WindowsServer
 
 **Derived From:** [cloudify.openstack.nodes.Server](#cloudifyopenstackserver)
 
@@ -108,8 +111,7 @@ This type has the same properties and operations-mapping as the type above (as i
 Additionally, the default value for the `use_password` property is overridden for this type, and is set to `true`. When using an image with a preset password, it should be modified to `false`.
 
 
-
-## cloudify.openstack.nodes.KeyPair
+### cloudify.openstack.nodes.KeyPair
 
 **Derived From:** cloudify.nodes.Root
 
@@ -141,8 +143,7 @@ Additionally, the default value for the `use_password` property is overridden fo
 See the [common Runtime Properties section](#runtime-properties).
 
 
-
-## cloudify.openstack.nodes.Subnet
+### cloudify.openstack.nodes.Subnet
 
 **Derived From:** cloudify.nodes.Subnet
 
@@ -174,8 +175,7 @@ See the [common Runtime Properties section](#runtime-properties).
 See the [common Runtime Properties section](#runtime-properties).
 
 
-
-## cloudify.openstack.nodes.SecurityGroup
+### cloudify.openstack.nodes.SecurityGroup
 
 **Derived From:** cloudify.nodes.SecurityGroup
 
@@ -220,8 +220,7 @@ See the [common Runtime Properties section](#runtime-properties).
 See the [common Runtime Properties section](#runtime-properties).
 
 
-
-## cloudify.openstack.nodes.Router
+### cloudify.openstack.nodes.Router
 
 **Derived From:** cloudify.nodes.Router
 
@@ -269,8 +268,7 @@ See the [common Runtime Properties section](#runtime-properties).
 See the [common Runtime Properties section](#runtime-properties).
 
 
-
-## cloudify.openstack.nodes.Port
+### cloudify.openstack.nodes.Port
 
 **Derived From:** cloudify.nodes.Root
 
@@ -304,8 +302,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Additionally, the Port's fixed-IP is available via the `fixed_ip_address` runtime property.
 
 
-
-## cloudify.openstack.nodes.Network
+### cloudify.openstack.nodes.Network
 
 **Derived From:** cloudify.nodes.Network
 
@@ -333,8 +330,7 @@ Additionally, the Port's fixed-IP is available via the `fixed_ip_address` runtim
 See the [common Runtime Properties section](#runtime-properties).
 
 
-
-## cloudify.openstack.nodes.FloatingIP
+### cloudify.openstack.nodes.FloatingIP
 
 **Derived From:** cloudify.nodes.Root
 
@@ -370,7 +366,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the actual IP is available via the `floating_ip_address` runtime-property.
 
 
-## cloudify.openstack.nodes.Volume
+### cloudify.openstack.nodes.Volume
 
 **Derived From:** cloudify.nodes.Volume
 
@@ -400,8 +396,7 @@ Note that the actual IP is available via the `floating_ip_address` runtime-prope
 See the [common Runtime Properties section](#runtime-properties).
 
 
-
-## cloudify.openstack.nova_net.nodes.FloatingIP
+### cloudify.openstack.nova_net.nodes.FloatingIP
 
 {{% gsNote title="Note" %}}
 This is a Nova-net specific type. See more in the [Nova-net Support section](#nova-net-support).
@@ -436,7 +431,7 @@ See the [common Runtime Properties section](#runtime-properties).
 Note that the actual IP is available via the `floating_ip_address` runtime-property.
 
 
-## cloudify.openstack.nova_net.nodes.SecurityGroup
+### cloudify.openstack.nova_net.nodes.SecurityGroup
 
 {{% gsNote title="Note" %}}
 This is a Nova-net specific type. See more in the [Nova-net Support section](#nova-net-support).
@@ -477,8 +472,7 @@ This is a Nova-net specific type. See more in the [Nova-net Support section](#no
 
 See the [common Runtime Properties section](#runtime-properties).
 
-
-# Relationships
+## Relationships
 
 {{% gsInfo title="Information" %}}
 Not all relationships have built-in types (i.e., some types may simply get connected using standard Cloudify relationships such as `cloudify.relationships.connected_to`).
@@ -487,7 +481,7 @@ Some relationships take effect in non-relationship operations, e.g. a subnet whi
 {{% /gsInfo %}}
 
 
-## cloudify.openstack.port_connected_to_security_group
+### cloudify.openstack.port_connected_to_security_group
 
 **Description:** A relationship for a port to a security group.
 
@@ -498,7 +492,7 @@ Some relationships take effect in non-relationship operations, e.g. a subnet whi
       * `openstack_config` see the [Openstack Configuration](#openstack-configuration).
 
 
-## cloudify.openstack.subnet_connected_to_router
+### cloudify.openstack.subnet_connected_to_router
 
 **Description:** A relationship for connecting a subnet to a router.
 
@@ -512,7 +506,7 @@ Some relationships take effect in non-relationship operations, e.g. a subnet whi
       * `openstack_config` see the [Openstack Configuration](#openstack-configuration).
 
 
-## cloudify.openstack.server_connected_to_floating_ip
+### cloudify.openstack.server_connected_to_floating_ip
 
 **Description:** A relationship for associating a floating ip with a server.
 
@@ -527,7 +521,7 @@ Some relationships take effect in non-relationship operations, e.g. a subnet whi
       * `openstack_config` see the [Openstack Configuration](#openstack-configuration).
 
 
-## cloudify.openstack.server_connected_to_security_group
+### cloudify.openstack.server_connected_to_security_group
 
 **Description:** A relationship for setting a security group on a server.
 
@@ -541,7 +535,7 @@ Some relationships take effect in non-relationship operations, e.g. a subnet whi
       * `openstack_config` see the [Openstack Configuration](#openstack-configuration).
 
 
-## cloudify.openstack.volume_attached_to_server
+### cloudify.openstack.volume_attached_to_server
 
 **Description:** A relationship for attaching a volume to a server.
 
@@ -555,7 +549,7 @@ Some relationships take effect in non-relationship operations, e.g. a subnet whi
       * `openstack_config` see the [Openstack Configuration](#openstack-configuration).
 
 
-## cloudify.openstack.server_connected_to_port
+### cloudify.openstack.server_connected_to_port
 
 **Description:** A relationship for connecting a server to a port. The server will use this relationship to automatically connect to the port upon server creation.
 
@@ -565,7 +559,7 @@ Some relationships take effect in non-relationship operations, e.g. a subnet whi
     * **Inputs:**
       * `openstack_config` see the [Openstack Configuration](#openstack-configuration).
 
-## cloudify.openstack.port_connected_to_subnet
+### cloudify.openstack.port_connected_to_subnet
 
 **Description:** A relationship for connecting a port to a subnet. This is useful when a network has multiple subnets, and a port should belong to a specific subnet on that network. The port will then receive some IP from that given subnet.
 
@@ -574,7 +568,7 @@ Note that when using this relationship in combination with the port type's prope
 *Note*: This relationship has no operations associated with it; The port will use this relationship to automatically connect to the subnet upon port creation.
 
 
-## cloudify.openstack.port_connected_to_floating_ip
+### cloudify.openstack.port_connected_to_floating_ip
 
 **Description:** A relationship for associating a floating ip with a port. If that port is later connected to a server, the server will be accessible via the floating IP.
 
@@ -588,9 +582,9 @@ Note that when using this relationship in combination with the port type's prope
       * `openstack_config` see the [Openstack Configuration](#openstack-configuration).
 
 
-# Types' Common Behaviors
+## Types' Common Behaviors
 
-## Validations
+### Validations
 
 All types offer the same base functionality for the `cloudify.interfaces.validation.creation` interface operation:
 
@@ -599,7 +593,7 @@ All types offer the same base functionality for the `cloudify.interfaces.validat
   * When [using an existing resource](#using-existing-resources), the validation ensures the resource indeed exists.
 
 
-## Runtime Properties
+### Runtime Properties
 
 Node instances of any of the types defined in this plugin get set with the following runtime properties during the `cloudify.interfaces.lifecycle.create` operation:
 
@@ -628,9 +622,7 @@ node_templates:
 Yet without setting the `resource_id` property, then the server's name on Openstack will be `server_my-deployment_myserver_XXXXX` (where the XXXXX is the autogenerated part of the node instance's ID).
 
 
-
-
-# Using Existing Resources
+## Using Existing Resources
 
 It is possible to use existing resources on Openstack - whether these have been created by a different Cloudify deployment or not via Cloudify at all.
 
@@ -656,7 +648,7 @@ The semantics of other operations are affected as well:
 * The `cloudify.interfaces.relationship_lifecycle.establish` operation will behave as normal if the related node is not set with `use_external_resource` as `true`; However if both nodes have this property set to `true`, the operation will only attempt to verify that they're indeed "connected" on Openstack as well ("connected" in this case also refers to a security-group imposed on a server, floating-ip associated with a server, etc.).
 
 
-## Notes
+### Notes
 
 * As mentioned in the [Relationships section](#relationships), some relationships take effect in non-relationship operations. When `use_external_resource` is set to `true`, the existence of such connections is validated as well.
 
@@ -665,7 +657,7 @@ The semantics of other operations are affected as well:
 
 
 
-# Openstack Configuration
+## Openstack Configuration
 
 The Openstack plugin requires credentials and endpoint setup information in order to authenticate and interact with Openstack.
 
@@ -734,7 +726,7 @@ The Openstack manager blueprint stores the Openstack configuration used for the 
 
 
 
-# Nova-net Support
+## Nova-net Support
 
 The Openstack plugin includes support for Nova-net mode - i.e., an Openstack installation which does not have the Networking API (Neutron service).
 

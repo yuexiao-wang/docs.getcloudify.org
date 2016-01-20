@@ -14,16 +14,16 @@ plugin_link: http://getcloudify.org.s3.amazonaws.com/spec/vsphere-plugin/1.3/plu
 
 The vSphere plugin allows users to use a vSphere based infrastructure for deploying services and applications.
 
-{{% gsNote %}}
-This page relates to a commercial add-on to Cloudify which is not open source. If you'd like to give it a test drive contact us using the feedback button on the right.
-The vSphere plugin.yaml configuration file can be found [here]({{< field "plugin_link" >}})
-{{% /gsNote %}}
-
 
 # Plugin Requirements
 
 * Python Versions:
     * 2.7.x
+
+{{% gsNote %}}
+This page relates to a commercial add-on to Cloudify which is not open source. If you'd like to give it a test drive contact us using the feedback button on the right.
+The vSphere plugin.yaml configuration file can be found [here]({{< field "plugin_link" >}})
+{{% /gsNote %}}
 
 ## vSphere Environment
 
@@ -46,75 +46,7 @@ ssh-keygen -b2048 -N "" -q -f ~/.ssh/cloudify-agent-kp.pem
 * The template should not have any network interfaces.
 
 
-# Types
-
-{{% gsTip title="Tip" %}}
-Each type has property `connection_config`. It can be used to pass parameters for authenticating. Overriding of this property is not required, and by default the authentication will take place with the same credentials that were used for the Cloudify bootstrap process.
-{{% /gsTip %}}
-
-
-## cloudify.vsphere.nodes.server
-
-**Derived From:** cloudify.nodes.Compute
-
-**Properties:**
-
-* `server` key-value server configuration.
-    * `name` server name.
-    * `template` virtual machine template from which server will be spawned. For more information, see the [Misc section - Virtual machine template](#virtual-machine-template).
-    * `cpus` number of CPUs.
-    * `memory` amount of RAM, in MB.
-
-* `networking` key-value server networking configuration.
-    * `domain` the fully qualified domain name.
-    * `dns_servers` list of DNS servers.
-    * `connected_networks` list of existing networks to which server will be connected, described as key-value objects. Network will be described as:
-        * `name` network name.
-        * `management` signifies if it's a management network (false by default). Only one connected network can be management.
-        * `external` signifies if it's an external network (false by default). Only one connected network can be external.
-        * `switch_distributed` signifies if network is connected to a distributed switch (false by default).
-        * `use_dhcp` use DHCP to obtain an ip address (true by default).
-        * `network` network cidr (for example, 10.0.0.0/24). It will be used by the plugin only when `use_dhcp` is false.
-        * `gateway` network gateway ip. It will be used by the plugin only when `use_dhcp` is false.
-        * `ip` server ip address. It will be used by the plugin only when `use_dhcp` is false.
-
-* `connection_config` key-value vSphere environment configuration. If not specified, values that were used for Cloudify bootstrap process will be used.
-    * `username` vSphere username.
-    * `password` user password.
-    * `url` vCenter url.
-    * `port` vCenter port for SDK (443 by default).
-    * `datacenter_name` datacenter name.
-    * `resource_pool_name` name of a resource pool. If you do not with to use a resource pool this must be set to 'Resources' as this is the base resource pool on vSphere.
-    * `auto_placement` signifies whether to use vSphere's auto-placement instead of the plugin's. Must be true if you are using clusters. (false by default).
-
-
-## cloudify.vsphere.nodes.network
-
-**Derived From:** cloudify.nodes.Network
-
-**Properties:**
-
-* `network` key-value network configuration.
-    * `name` network name
-    * `vlan_id` vLAN identifier which will be assignee to the network.
-    * `vswitch_name` vSwitch name to which the network will be connected
-* `connection_config` key-value vSphere environment configuration. Same as for `cloudify.vsphere.server` type.
-
-
-## cloudify.vsphere.nodes.storage
-
-**Derived From:** cloudify.nodes.Volume
-
-**Properties:**
-
-* `storage` key-value storage disk configuration.
-    * `storage_size` disk size in GB.
-* `connection_config` key-value vSphere environment configuration. Same as for `cloudify.vsphere.server` type.
-
-
-# Examples
-
-## Example I
+# Basic Usage
 
 This example will show how to use all of the types in this plugin.
 
@@ -179,3 +111,84 @@ Node by node explanation:
 3. Creates a storage. We specified desired storage size as 1 GB and wish to add this storage to example_server vm.
 
 {{% /gsCloak %}}
+
+
+# Types
+
+## Node Types
+
+### cloudify.vsphere.nodes.server
+
+**Derived From:** [cloudify.nodes.Compute]({{< relref "blueprints/built-in-types.md" >}})
+
+**Properties:**
+
+  * `server` key-value server configuration.
+    * `name` server name.
+    * `template` virtual machine template from which server will be spawned. For more information, see the [Misc section - Virtual machine template](#virtual-machine-template).
+    * `cpus` number of CPUs.
+    * `memory` amount of RAM, in MB.
+  * `networking` key-value server networking configuration.
+    * `domain` the fully qualified domain name.
+    * `dns_servers` list of DNS servers.
+    * `connected_networks` list of existing networks to which server will be connected, described as key-value objects. Network will be described as:
+      * `name` network name.
+      * `management` signifies if it's a management network (false by default). Only one connected network can be management.
+      * `external` signifies if it's an external network (false by default). Only one connected network can be external.
+      * `switch_distributed` signifies if network is connected to a distributed switch (false by default).
+      * `use_dhcp` use DHCP to obtain an ip address (true by default).
+      * `network` network cidr (for example, 10.0.0.0/24). It will be used by the plugin only when `use_dhcp` is false.
+      * `gateway` network gateway ip. It will be used by the plugin only when `use_dhcp` is false.
+      * `ip` server ip address. It will be used by the plugin only when `use_dhcp` is false.
+  * `connection_config` key-value vSphere environment configuration. If not specified, values that were used for Cloudify bootstrap process will be used.
+    * `username` vSphere username.
+    * `password` user password.
+    * `url` vCenter url.
+    * `port` vCenter port for SDK (443 by default).
+    * `datacenter_name` datacenter name.
+    * `resource_pool_name` name of a resource pool. If you do not with to use a resource pool this must be set to 'Resources' as this is the base resource pool on vSphere.
+    * `auto_placement` signifies whether to use vSphere's auto-placement instead of the plugin's. Must be true if you are using clusters. (false by default).
+
+
+### cloudify.vsphere.nodes.network
+
+**Derived From:** [cloudify.nodes.Network]({{< relref "blueprints/built-in-types.md" >}})
+
+**Properties:**
+
+  * `network` key-value network configuration.
+    * `name` network name
+    * `vlan_id` vLAN identifier which will be assignee to the network.
+    * `vswitch_name` vSwitch name to which the network will be connected
+  * `connection_config` key-value vSphere environment configuration.
+    * `username` vSphere username.
+    * `password` user password.
+    * `url` vCenter url.
+    * `port` vCenter port for SDK (443 by default).
+    * `datacenter_name` datacenter name.
+    * `resource_pool_name` name of a resource pool. If you do not with to use a resource pool this must be set to 'Resources' as this is the base resource pool on vSphere.
+    * `auto_placement` signifies whether to use vSphere's auto-placement instead of the plugin's. Must be true if you are using clusters. (false by default).
+
+
+### cloudify.vsphere.nodes.storage
+
+**Derived From:** [cloudify.nodes.Volume]({{< relref "blueprints/built-in-types.md" >}})
+
+**Properties:**
+
+  * `storage` key-value storage disk configuration.
+    * `storage_size` disk size in GB.
+  * `connection_config` key-value vSphere environment configuration.
+    * `username` vSphere username.
+    * `password` user password.
+    * `url` vCenter url.
+    * `port` vCenter port for SDK (443 by default).
+    * `datacenter_name` datacenter name.
+    * `resource_pool_name` name of a resource pool. If you do not with to use a resource pool this must be set to 'Resources' as this is the base resource pool on vSphere.
+    * `auto_placement` signifies whether to use vSphere's auto-placement instead of the plugin's. Must be true if you are using clusters. (false by default).
+
+
+### Common Properties
+
+* Each type has property `connection_config`. It can be used to pass parameters for authenticating. Overriding of this property is not required, and by default the authentication will take place with the same credentials that were used for the Cloudify bootstrap process.
+
