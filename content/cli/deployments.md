@@ -36,6 +36,7 @@ Start an workflow execution for a specific deployment
                         can be used multiple times.
 
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -84,6 +85,7 @@ Retrieve information on a single execution.
                         multiple times. (default: inputs.yaml)
 *  `--skip-uninstall` -      Skip uninstall lifecycle operations
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -113,6 +115,7 @@ Delete an existing deployment. It's important to note that deleting a deployment
 
 *  `-f, --ignore-live-nodes` - Delete the deployment even if there are existing live resources for that deployment
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -136,6 +139,7 @@ List all existing deployment for a blueprint.
 *  `-b, --blueprint-id BLUEPRINT_ID` - The ID of the blueprint you would like to list deployments for
 
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -149,7 +153,7 @@ Deployments:
 |         id        | blueprint_id |         created_at         |         updated_at         |
 +-------------------+--------------+----------------------------+----------------------------+
 |   simple_website  |    simple    | 2016-06-27 10:42:58.682240 | 2016-06-27 10:42:58.682240 |
-| simple_website_22 |    simple    | 2016-06-27 11:50:34.130098 | 2016-06-27 11:50:34.130098 |
+|  simple_website_2 |    simple    | 2016-06-27 11:50:34.130098 | 2016-06-27 11:50:34.130098 |
 +-------------------+--------------+----------------------------+----------------------------+
 
 ...
@@ -165,6 +169,7 @@ Lists all outputs for a deployment. Note that not every deployment has outputs a
 
 * `-d, --deployment-id=DEPLOYMENT_ID` - The ID of the deployment you would like to list outputs for
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
