@@ -32,12 +32,33 @@ Upload a blueprint to a manager.
 *  `--validate` -           Validate the blueprint before uploading it to the
                         manager
 
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints upload -p simple-python-webserver-blueprint/blueprint.yaml -b simple
+...
+
+Uploading blueprint simple-python-webserver-blueprint/blueprint.yaml...
+Blueprint uploaded. The blueprint's id is simple
+
+...
+
+$ cfy blueprints upload --validate -p simple-python-webserver-blueprint/blueprint.yaml -b simple
+...
+Validating blueprint: simple-python-webserver-blueprint/blueprint.yaml
+Blueprint validated successfully
+Uploading blueprint simple-python-webserver-blueprint/blueprint.yaml...
+Blueprint uploaded. The blueprint's id is simple
+
+...
+{{< /gsHighlight >}}
+
 
 ### publish-archive
 
 Usage: `cfy blueprints publish-archive [options] -b BLUEPRINT_ID`
 
-Upload a blueprint achive to a manager. The difference between this and `upload` is that `upload` is done directly from a directory containing a blueprint, not a blueprint archive (e.g. `zip`, `tar.gz`).
+Upload a blueprint archive to a manager. The difference between this and `upload` is that `upload` is done directly from a directory containing a blueprint, not a blueprint archive (e.g. `zip`, `tar.gz`).
 
 #### Required flags
 
@@ -52,6 +73,16 @@ Upload a blueprint achive to a manager. The difference between this and `upload`
 *  `-n, --blueprint-filename=BLUEPRINT_FILENAME` -
                         The name of the archive's main blueprint file
 
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints publish-archive -l simple.tar.gz -b simple
+...
+Publishing blueprint archive from path simple.tar.gz...
+Blueprint archive published. The blueprint's id is simple
+
+...
+{{< /gsHighlight >}}
 
 ### delete
 
@@ -62,6 +93,17 @@ Delete a blueprint. It's important to note that deleting a blueprint does not me
 #### Required flags
 
 *  `-b, --blueprint-id=BLUEPRINT_ID` - A user provided blueprint ID
+
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints delete -b simple
+...
+Deleting blueprint simple...
+Blueprint deleted
+
+...
+{{< /gsHighlight >}}
 
 
 ### download
@@ -80,6 +122,17 @@ Download a blueprint from the manager.
 *  `-o, --output=OUTPUT` -
                         The local path of the downloaded blueprint
 
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints download -b simple
+...
+Downloading blueprint simple...
+Blueprint downloaded as simple.tar.gz
+
+...
+{{< /gsHighlight >}}
+
 
 ### validate
 
@@ -97,6 +150,16 @@ Import validation is done only on the client side. That means that if, for some 
                         The path to the application's blueprint file.
                         (default: blueprint.yaml)
 
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints validate -p simple-python-webserver-blueprint/blueprint.yaml
+...
+Validating blueprint: simple-python-webserver-blueprint/blueprint.yaml
+Blueprint validated successfully
+
+...
+{{< /gsHighlight >}}
 
 ### list
 
@@ -104,6 +167,23 @@ Usage: `cfy blueprints list`
 
 List all existing blueprints.
 
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints list
+...
+Listing all blueprints...
+
+Available blueprints:
++------------+----------------------+------------------------+----------------------------+----------------------------+
+|     id     |     description      |     main_file_name     |         created_at         |         updated_at         |
++------------+----------------------+------------------------+----------------------------+----------------------------+
+| nodecellar | This blueprint ins.. | aws-ec2-blueprint.yaml | 2016-06-27 10:30:37.698852 | 2016-06-27 10:30:37.698852 |
+|   simple   | This blueprint dep.. |     blueprint.yaml     | 2016-06-27 10:41:07.374311 | 2016-06-27 10:41:07.374311 |
++------------+----------------------+------------------------+----------------------------+----------------------------+
+
+...
+{{< /gsHighlight >}}
 
 ### get
 
@@ -116,6 +196,29 @@ Retrieve information for a single blueprint.
 *  `-b, --blueprint-id=BLUEPRINT_ID` - 
                         A user provided blueprint ID
 
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints get -b simple
+...
+Retrieving blueprint simple...
+
+Blueprint:
++--------+----------------+----------------------------+----------------------------+--------------+
+|   id   | main_file_name |         created_at         |         updated_at         | #deployments |
++--------+----------------+----------------------------+----------------------------+--------------+
+| simple | blueprint.yaml | 2016-06-27 10:41:07.374311 | 2016-06-27 10:41:07.374311 |      1       |
++--------+----------------+----------------------------+----------------------------+--------------+
+
+Description:
+This blueprint deploys a simple web site
+
+
+Existing deployments:
+["simple_website"]
+
+...
+{{< /gsHighlight >}}
 
 ### inputs
 
@@ -128,3 +231,21 @@ Lists all inputs for a blueprint. Note that not every blueprint has inputs.
 *  `-b, --blueprint-id=BLUEPRINT_ID` - 
                         A user provided blueprint ID
 
+#### Example
+
+{{< gsHighlight  bash  >}}
+$ cfy blueprints inputs -b simple
+...
+Retrieving inputs for blueprint simple...
+
+Inputs:
++----------------+------+-----------+---------------------------+
+|      name      | type |  default  |        description        |
++----------------+------+-----------+---------------------------+
+| webserver_port |  -   |    8000   | The HTTP web server port. |
+|                |      |           |                           |
+|    host_ip     |  -   | localhost |             -             |
++----------------+------+-----------+---------------------------+
+
+...
+{{< /gsHighlight >}}
