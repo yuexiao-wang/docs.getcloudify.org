@@ -32,6 +32,7 @@ Upload a blueprint to a manager.
 *  `--validate` -           Validate the blueprint before uploading it to the
                         manager
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -73,6 +74,7 @@ Upload a blueprint archive to a manager. The difference between this and `upload
 *  `-n, --blueprint-filename=BLUEPRINT_FILENAME` -
                         The name of the archive's main blueprint file
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -94,6 +96,7 @@ Delete a blueprint. It's important to note that deleting a blueprint does not me
 
 *  `-b, --blueprint-id=BLUEPRINT_ID` - A user provided blueprint ID
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -122,6 +125,7 @@ Download a blueprint from the manager.
 *  `-o, --output=OUTPUT` -
                         The local path of the downloaded blueprint
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -150,6 +154,7 @@ Import validation is done only on the client side. That means that if, for some 
                         The path to the application's blueprint file.
                         (default: blueprint.yaml)
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -167,6 +172,7 @@ Usage: `cfy blueprints list`
 
 List all existing blueprints.
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -196,6 +202,7 @@ Retrieve information for a single blueprint.
 *  `-b, --blueprint-id=BLUEPRINT_ID` - 
                         A user provided blueprint ID
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
@@ -231,6 +238,7 @@ Lists all inputs for a blueprint. Note that not every blueprint has inputs.
 *  `-b, --blueprint-id=BLUEPRINT_ID` - 
                         A user provided blueprint ID
 
+&nbsp;
 #### Example
 
 {{< gsHighlight  bash  >}}
