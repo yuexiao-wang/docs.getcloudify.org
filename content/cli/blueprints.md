@@ -46,6 +46,7 @@ Blueprint uploaded. The blueprint's id is simple
 
 $ cfy blueprints upload --validate -p simple-python-webserver-blueprint/blueprint.yaml -b simple
 ...
+
 Validating blueprint: simple-python-webserver-blueprint/blueprint.yaml
 Blueprint validated successfully
 Uploading blueprint simple-python-webserver-blueprint/blueprint.yaml...

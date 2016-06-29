@@ -60,6 +60,7 @@ Executing workflow install on deployment hello_world [timeout=900 seconds]
 2016-06-28T11:28:30 CFY <hello_world> [elastic_ip_02973] Creating node
 .
 .
+.
 2016-06-28T11:30:01 CFY <hello_world> [vm_5ab69] Configuring Agent
 2016-06-28T11:30:01 CFY <hello_world> [vm_5ab69.configure] Sending task 'cloudify_agent.installer.operations.configure'
 2016-06-28T11:30:02 CFY <hello_world> [vm_5ab69.configure] Task started 'cloudify_agent.installer.operations.configure'

@@ -71,7 +71,6 @@ Deployment environment creation is in progress...
 .
 .
 .
-
 2016-06-28T12:21:18 CFY <cloudify-hello-world-example-master> [vm_8573e] Configuring Agent
 2016-06-28T12:21:18 CFY <cloudify-hello-world-example-master> [vm_8573e.configure] Sending task 'cloudify_agent.installer.operations.configure'
 2016-06-28T12:21:18 CFY <cloudify-hello-world-example-master> [vm_8573e.configure] Task started 'cloudify_agent.installer.operations.configure'
@@ -80,7 +79,6 @@ Deployment environment creation is in progress...
 .
 .
 .
-
 2016-06-28T12:21:49 CFY <cloudify-hello-world-example-master> [http_web_server_d776e.start] Task succeeded 'script_runner.tasks.run'
 2016-06-28T12:21:49 CFY <cloudify-hello-world-example-master> 'install' workflow execution succeeded
 Finished executing workflow install on deployment cloudify-hello-world-example-master
