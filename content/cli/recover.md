@@ -56,35 +56,6 @@ Recovering manager...
 .
 .
 .
-2016-06-29 09:02:12 CFY <manager> [manager_configuration_ad180->manager_host_51281|postconfigure] Task succeeded 'script_runner.tasks.run'
-2016-06-29 09:02:12 CFY <manager> [manager_configuration_ad180] Starting node
-2016-06-29 09:02:13 CFY <manager> [influxdb_de86b] Creating node
-2016-06-29 09:02:13 CFY <manager> [python_runtime_5fdfd] Creating node
-.
-.
-.
-2016-06-29 09:05:52 LOG <manager> [influxdb_de86b.create] INFO: Databased cloudify created successfully.
-2016-06-29 09:05:52 LOG <manager> [influxdb_de86b.create] INFO: Stopping systemd service cloudify-influxdb...
-2016-06-29 09:05:54 CFY <manager> [influxdb_de86b.create] Task succeeded 'fabric_plugin.tasks.run_script'
-2016-06-29 09:05:54 CFY <manager> [python_runtime_5fdfd.create] Task started 'fabric_plugin.tasks.run_script'
-.
-.
-.
-2016-06-29 09:07:22 LOG <manager> [elasticsearch_8d1cf.create] INFO: Waiting for shards to be active...
-2016-06-29 09:07:23 CFY <manager> [elasticsearch_8d1cf.create] Task succeeded 'fabric_plugin.tasks.run_script'
-2016-06-29 09:07:23 CFY <manager> [amqp_influx_b26d6] Creating node
-.
-.
-.
-2016-06-29 09:09:12 CFY <manager> [rest_service_fd6df->manager_configuration_ad180|preconfigure] Task succeeded 'fabric_plugin.tasks.run_script'
-2016-06-29 09:09:12 CFY <manager> [logstash_952cb] Configuring node
-2016-06-29 09:09:12 CFY <manager> [rest_service_fd6df] Configuring node
-2016-06-29 09:09:13 CFY <manager> [rest_service_fd6df.configure] Sending task 'fabric_plugin.tasks.run_task'
-.
-.
-.
-2016-06-29 09:11:04 LOG <manager> [sanity_dee2c.start] INFO: Saving sanity input configuration to /opt/cloudify/sanity/node_properties/properties.json
-2016-06-29 09:11:04 CFY <manager> [sanity_dee2c.start] Task succeeded 'fabric_plugin.tasks.run_script'
 2016-06-29 09:11:06 CFY <manager> 'heal' workflow execution succeeded
 [52.31.106.71] put: /home/ubuntu/.ssh/cloudify-agent-kp.pem -> /root/.ssh/agent_key.pem
 Uploading snapshot 'first_snapshot.zip' to management server 52.31.106.71 as restored-snapshot
