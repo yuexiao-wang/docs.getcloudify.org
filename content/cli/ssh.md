@@ -26,7 +26,7 @@ Connect to a manager via SSH
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy ssh
 ...
 

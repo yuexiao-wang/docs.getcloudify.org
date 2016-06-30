@@ -29,7 +29,7 @@ Lists all groups for a deployment.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy groups list -d hello_world
 ...
 

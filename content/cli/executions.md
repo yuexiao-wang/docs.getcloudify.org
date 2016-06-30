@@ -51,7 +51,7 @@ Start an workflow execution for a specific deployment
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy executions start -d hello_world -w install
 ...
 
@@ -96,7 +96,7 @@ Cancel a running execution.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy executions cancel --execution-id c7fab104-13a9-46f5-b934-ef5280aa88c6
 ...
 
@@ -122,7 +122,7 @@ Lists all executions for a deployment.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy executions list
 ...
 
@@ -154,7 +154,7 @@ Retrieve information on a single execution.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy executions get -e 37b2d6d6-286c-465a-b68d-3304ba972f3d
 ...
 

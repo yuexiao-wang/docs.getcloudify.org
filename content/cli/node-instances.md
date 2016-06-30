@@ -31,7 +31,7 @@ List node-instances.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy node-instances list
 ...
 
@@ -66,7 +66,7 @@ Retrieve information for a single node-instance.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy node-instances get --node-instance-id elastic_ip_f6edf
 ...
 

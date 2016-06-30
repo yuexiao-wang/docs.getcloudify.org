@@ -51,9 +51,10 @@ Bootstrap Cloudify manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy bootstrap --install-plugins -p aws-ec2-manager-blueprint.yaml -i aws-ec2-manager-blueprint-inputs.yaml
 ...
+
 Executing bootstrap validation...
 Collecting https://github.c
 .

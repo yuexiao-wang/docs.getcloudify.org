@@ -20,7 +20,7 @@ Show a list of the services running on the manager, whether it is in maintenance
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy status
 ...
 

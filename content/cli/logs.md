@@ -25,7 +25,7 @@ Create a backup of all log files on the manager stored under `/var/log/cloudify`
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy logs backup
 ...
 
@@ -48,7 +48,7 @@ Create an archive containing the manager's logs and download them. The output fi
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy logs download
 ...
 
@@ -83,7 +83,7 @@ USE WITH CARE! Log files in Cloudify manager are rotated. `cfy purge` is a safet
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy logs purge -f --backup-first
 ...
 

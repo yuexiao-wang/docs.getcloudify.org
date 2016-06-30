@@ -35,7 +35,7 @@ Create a snapshot of the manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy snapshots create -s first_snapshot
 ...
 
@@ -59,7 +59,7 @@ Delete a snapshot from the manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy snapshots delete -s first_snapshot
 ...
 
@@ -87,7 +87,7 @@ Download a snapshot from the manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy snapshots download -s first_snapshot
 ,,,
 
@@ -108,7 +108,7 @@ List all available snapshots on the manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy snapshots list
 ...
 
@@ -144,7 +144,7 @@ Restore a newly bootstrapped manager using a snapshot archive
 nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy snapshots restore -s first_snapshot
 ...
 
@@ -168,7 +168,7 @@ Usage: `cfy snapshots upload -p SNAPSHOT_FILE -s SNAPSHOT_ID`
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy snapshots upload -p first_snapshot.zip -s first_snapshot
 ...
 

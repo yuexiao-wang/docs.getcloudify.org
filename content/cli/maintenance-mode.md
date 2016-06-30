@@ -32,7 +32,7 @@ Enter maintenance-mode on the manager rejecting further REST requests.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy maintenance-mode activate
 ...
 
@@ -52,7 +52,7 @@ Deactivate maintenance-mode on the manager to accept REST requests.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy maintenance-mode deactivate
 ...
 
@@ -72,7 +72,7 @@ Retrieve the current maintenance-mode status.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy maintenance-mode deactivate
 ...
 

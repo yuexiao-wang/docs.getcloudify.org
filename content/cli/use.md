@@ -31,7 +31,7 @@ Control the manager accessible on the supplied IP address.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy use -t 52.31.106.71
 ...
 

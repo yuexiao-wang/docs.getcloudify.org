@@ -27,7 +27,7 @@ For instance, if you want to activate output coloring, you can change `colors` i
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy init
 ...
 

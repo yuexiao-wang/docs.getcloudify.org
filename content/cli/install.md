@@ -57,7 +57,7 @@ Install an application.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy install -p cloudify-hello-world-example-master/ec2-blueprint.yaml
 ...
 

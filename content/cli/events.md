@@ -32,7 +32,7 @@ Lists all events for an execution.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 cfy events list -e 26a9f8a8-f09f-468f-a46a-f64de4a31070
 ...
 

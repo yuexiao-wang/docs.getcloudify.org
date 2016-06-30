@@ -38,7 +38,7 @@ Recover the manager using the provided snapshot.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy recover -f -s first_snapshot.zip
 ...
 

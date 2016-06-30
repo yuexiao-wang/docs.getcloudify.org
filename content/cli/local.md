@@ -58,7 +58,7 @@ Install a blueprint.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy local install -p simple-python-webserver-blueprint-master/blueprint.yaml
 ...
 
@@ -111,7 +111,7 @@ Uninstall a blueprint.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy local uninstall
 ...
 
@@ -152,7 +152,7 @@ Initialize a working directory for the desired blueprint.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy local init -p simple-python-webserver-blueprint-master/blueprint.yaml 
 ...
 
@@ -199,7 +199,7 @@ Executes a workflow on the locally initialized blueprint.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy local execute -w install
 ...
 
@@ -281,7 +281,7 @@ Shows the outputs of the installed bluerprint
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy local outputs
 ...
 
@@ -326,7 +326,7 @@ Create a pip requirements.txt file for a specific blueprint.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy local create-requirements -p cloudify-hello-world-example-master/blueprint.yaml
 ...
 
@@ -343,7 +343,7 @@ https://github.com/cloudify-cosmo/cloudify-diamond-plugin/archive/1.3.3.zip
 
 Installing an application:
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy local install -p blueprint.yaml 
 ...
 

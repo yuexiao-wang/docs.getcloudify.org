@@ -39,7 +39,7 @@ Start an workflow execution for a specific deployment
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy deployments create -d simple_website -b simple
 ...
 
@@ -88,7 +88,7 @@ Retrieve information on a single execution.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy deployments update -d nodecellar -p nodecellar-blueprint/aws-ec2-blueprint.yaml
 ...
 
@@ -118,7 +118,7 @@ Delete an existing deployment. It's important to note that deleting a deployment
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy deployments delete -d simple_website
 ...
 
@@ -142,7 +142,7 @@ List all existing deployment for a blueprint.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy deployments list -b simple
 ...
 
@@ -172,7 +172,7 @@ Lists all outputs for a deployment. Note that not every deployment has outputs a
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy deployments outputs -d simple_website
 ...
 

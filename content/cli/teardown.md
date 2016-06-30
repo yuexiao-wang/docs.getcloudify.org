@@ -30,7 +30,7 @@ Teardown a manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy teardown -f --ignore-deployments
 ...
 

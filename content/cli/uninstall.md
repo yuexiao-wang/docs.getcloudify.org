@@ -40,7 +40,7 @@ Uninstall an application.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy uninstall -d hello_world
 ...
 

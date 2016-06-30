@@ -35,7 +35,7 @@ Upload a blueprint to a manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints upload -p simple-python-webserver-blueprint/blueprint.yaml -b simple
 ...
 
@@ -78,9 +78,10 @@ Upload a blueprint archive to a manager. The difference between this and `upload
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints publish-archive -l simple.tar.gz -b simple
 ...
+
 Publishing blueprint archive from path simple.tar.gz...
 Blueprint archive published. The blueprint's id is simple
 
@@ -100,9 +101,10 @@ Delete a blueprint. It's important to note that deleting a blueprint does not me
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints delete -b simple
 ...
+
 Deleting blueprint simple...
 Blueprint deleted
 
@@ -129,9 +131,10 @@ Download a blueprint from the manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints download -b simple
 ...
+
 Downloading blueprint simple...
 Blueprint downloaded as simple.tar.gz
 
@@ -158,9 +161,10 @@ Import validation is done only on the client side. That means that if, for some 
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints validate -p simple-python-webserver-blueprint/blueprint.yaml
 ...
+
 Validating blueprint: simple-python-webserver-blueprint/blueprint.yaml
 Blueprint validated successfully
 
@@ -176,9 +180,10 @@ List all existing blueprints.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints list
 ...
+
 Listing all blueprints...
 
 Available blueprints:
@@ -206,9 +211,10 @@ Retrieve information for a single blueprint.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints get -b simple
 ...
+
 Retrieving blueprint simple...
 
 Blueprint:
@@ -242,9 +248,10 @@ Lists all inputs for a blueprint. Note that not every blueprint has inputs.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy blueprints inputs -b simple
 ...
+
 Retrieving inputs for blueprint simple...
 
 Inputs:

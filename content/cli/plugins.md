@@ -36,7 +36,7 @@ Wagon (via the `--format` flag) allows to create archives in both `tar.gz` and `
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy plugins upload -p cloudify_script_plugin-1.2-py27-none-any-none-none.wgn
 ...
 
@@ -67,7 +67,7 @@ Download a plugin archive from the manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy plugins download -p 965d1984-3ef1-485d-9e04-4c3f8cea11df
 ...
 
@@ -96,7 +96,7 @@ Delete a snapshot from the manager.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy plugins delete -p 965d1984-3ef1-485d-9e04-4c3f8cea11df
 ...
 
@@ -118,7 +118,7 @@ You can use this command to get the IDs of the plugins you would like to downloa
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy plugins list
 ...
 
@@ -149,7 +149,7 @@ Retrieve information on a single plugin.
 &nbsp;
 #### Example
 
-{{< gsHighlight  bash  >}}
+{{< gsHighlight  markdown  >}}
 $ cfy plugins get -p 965d1984-3ef1-485d-9e04-4c3f8cea11df
 ...
 
